@@ -16,6 +16,7 @@ class CategoryListViewController: UIViewController {
     
     let categoryCellId = "CategoryCellId"
     var dataSource = [Category]()
+    var selectedCategory: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,15 @@ class CategoryListViewController: UIViewController {
         category.name = categoryName
         appDelegate.saveContext()
     }
+    
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueId.ShowItemList {
+            if let itemListVC = segue.destination as? ItemListViewController {
+                itemListVC.category = selectedCategory
+            }
+        }
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -114,5 +124,11 @@ extension CategoryListViewController: UITableViewDelegate {
 
         let category = dataSource[indexPath.row]
         cell.textLabel?.text = category.name
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedCategory = dataSource[indexPath.row]
+        self.performSegue(withIdentifier: "ShowItemList", sender: self)
     }
 }
