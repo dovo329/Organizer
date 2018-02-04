@@ -129,6 +129,6 @@ extension CategoryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedCategory = dataSource[indexPath.row]
-        self.performSegue(withIdentifier: "ShowItemList", sender: self)
+        self.performSegue(withIdentifier: SegueId.ShowItemList, sender: self)
     }
 }
