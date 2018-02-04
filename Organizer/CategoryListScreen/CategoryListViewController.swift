@@ -15,7 +15,7 @@ class CategoryListViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     let categoryCellId = "CategoryCellId"
-    var dataSource = [String]()
+    var dataSource = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,10 +69,10 @@ class CategoryListViewController: UIViewController {
         fetchRequest.sortDescriptors = [sort]
         
         do {
-            let categories = try managedContext.fetch(fetchRequest) as! [Category]
-            dataSource = categories.map({(category: Category) -> (String) in
-                return category.name!
-            })
+            if let fetchResults = try managedContext.fetch(fetchRequest) as? [Category] {
+                dataSource = fetchResults
+            }
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -83,9 +83,12 @@ class CategoryListViewController: UIViewController {
             return
         }
         
-        let category = NSEntityDescription.insertNewObject(
+        guard let category = NSEntityDescription.insertNewObject(
             forEntityName: "Category",
-            into: appDelegate.persistentContainer.viewContext) as! Category
+            into: appDelegate.persistentContainer.viewContext) as? Category else {
+                return
+        }
+        
         category.name = categoryName
         appDelegate.saveContext()
     }
@@ -109,6 +112,7 @@ extension CategoryListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        cell.textLabel?.text = dataSource[indexPath.row]
+        let category = dataSource[indexPath.row]
+        cell.textLabel?.text = category.name
     }
 }
