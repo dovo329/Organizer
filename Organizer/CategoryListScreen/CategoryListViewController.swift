@@ -12,12 +12,19 @@ class CategoryListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
+
     let categoryCellId = "CategoryCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: categoryCellId)
+    }
+    
+    @IBAction func addButtonAction(_ sender: UIBarButtonItem) {
+        print("Add action")
     }
 }
 

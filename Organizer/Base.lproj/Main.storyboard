@@ -36,8 +36,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Category List" id="Qdn-rZ-CVl"/>
+                    <navigationItem key="navigationItem" title="Category List" id="Qdn-rZ-CVl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xcb-1T-bnr">
+                            <connections>
+                                <action selector="addButtonAction:" destination="BYZ-38-t0r" id="Agz-yP-bf7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="Xcb-1T-bnr" id="eoq-KJ-P2f"/>
                         <outlet property="tableView" destination="RVk-db-s32" id="CbA-M9-TUT"/>
                         <segue destination="1du-y4-AqI" kind="show" identifier="ShowItemList" id="w0E-nU-3nP"/>
                     </connections>
