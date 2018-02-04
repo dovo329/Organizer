@@ -65,6 +65,9 @@ class CategoryListViewController: UIViewController {
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: "Category")
         
+        let sort = NSSortDescriptor(key: #keyPath(Category.name), ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        
         do {
             let categories = try managedContext.fetch(fetchRequest) as! [Category]
             dataSource = categories.map({(category: Category) -> (String) in
