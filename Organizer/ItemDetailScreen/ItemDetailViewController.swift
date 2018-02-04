@@ -46,6 +46,12 @@ class ItemDetailViewController: UIViewController {
     
     @IBAction func saveAction(_ sender: Any) {
         print("Save Action")
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        appDelegate.saveContext()
     }
 }
 
