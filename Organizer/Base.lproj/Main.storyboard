@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Category List View Controller-->
+        <!--Category List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CategoryListViewController" customModule="Organizer" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Qdn-rZ-CVl"/>
+                    <navigationItem key="navigationItem" title="Category List" id="Qdn-rZ-CVl"/>
                     <connections>
                         <outlet property="tableView" destination="RVk-db-s32" id="CbA-M9-TUT"/>
                         <segue destination="1du-y4-AqI" kind="show" identifier="ShowItemList" id="w0E-nU-3nP"/>
