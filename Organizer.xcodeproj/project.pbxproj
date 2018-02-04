@@ -15,6 +15,7 @@
 		A5FD46DE20268B7A00DAD4DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FD46DC20268B7A00DAD4DC /* LaunchScreen.storyboard */; };
 		A5FD46E920268B7A00DAD4DC /* OrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD46E820268B7A00DAD4DC /* OrganizerTests.swift */; };
 		A5FD46F420268B7A00DAD4DC /* OrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD46F320268B7A00DAD4DC /* OrganizerUITests.swift */; };
+		A5FD47062026906300DAD4DC /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47052026906300DAD4DC /* ItemListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A5FD46EF20268B7A00DAD4DC /* OrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FD46F320268B7A00DAD4DC /* OrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerUITests.swift; sourceTree = "<group>"; };
 		A5FD46F520268B7A00DAD4DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5FD47052026906300DAD4DC /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				A5FD46D020268B7A00DAD4DC /* AppDelegate.swift */,
 				A5FD470120268E4000DAD4DC /* CategoryListScreen */,
+				A5FD47072026906C00DAD4DC /* ItemListScreen */,
 				A5FD46D420268B7A00DAD4DC /* Main.storyboard */,
 				A5FD46DA20268B7A00DAD4DC /* Assets.xcassets */,
 				A5FD46DC20268B7A00DAD4DC /* LaunchScreen.storyboard */,
@@ -134,6 +137,14 @@
 				A5FD46D220268B7A00DAD4DC /* CategoryListViewController.swift */,
 			);
 			path = CategoryListScreen;
+			sourceTree = "<group>";
+		};
+		A5FD47072026906C00DAD4DC /* ItemListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A5FD47052026906300DAD4DC /* ItemListViewController.swift */,
+			);
+			path = ItemListScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5FD46D320268B7A00DAD4DC /* CategoryListViewController.swift in Sources */,
+				A5FD47062026906300DAD4DC /* ItemListViewController.swift in Sources */,
 				A5FD46D920268B7A00DAD4DC /* Organizer.xcdatamodeld in Sources */,
 				A5FD46D120268B7A00DAD4DC /* AppDelegate.swift in Sources */,
 			);
