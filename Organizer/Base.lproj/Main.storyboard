@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
-        <!--Item List View Controller-->
+        <!--Item List-->
         <scene sceneID="E6m-xE-bvC">
             <objects>
                 <viewController id="1du-y4-AqI" customClass="ItemListViewController" customModule="Organizer" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,6 +63,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="YtN-GG-cdF"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Item List" id="C8Y-Bb-yZy"/>
                     <connections>
                         <segue destination="rWJ-89-VIV" kind="show" identifier="ShowItemDetail" id="ESP-Kg-mLd"/>
                     </connections>
