@@ -58,7 +58,7 @@ class ItemListViewController: UIViewController {
                 }
                 
                 item.photo = nil
-                item.name = "New Item"
+                item.name = ""
                 item.desc = ""
                 
                 itemDetailVC.item = item
