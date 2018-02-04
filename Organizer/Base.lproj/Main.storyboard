@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="1273" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Item Detail View Controller-->
         <scene sceneID="o7P-8Q-pDG">
             <objects>
-                <viewController id="rWJ-89-VIV" sceneMemberID="viewController">
+                <viewController id="rWJ-89-VIV" customClass="ItemDetailViewController" customModule="Organizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="srD-u8-Xd8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
