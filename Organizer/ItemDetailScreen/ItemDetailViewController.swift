@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class ItemDetailViewController: UIViewController {
     
+    var item: Item?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let itemName = item?.name ?? ""
+        print("item name: \(itemName)")
     }
 }
