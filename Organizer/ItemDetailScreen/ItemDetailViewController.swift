@@ -16,8 +16,9 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var descTextView: UITextView!
     
     var item: Item?
+    let itemDescriptionBorderColor = UIColor(white: 0.9, alpha: 1.0)
     let itemDescriptionPlaceholderText = "Item Description"
-    let itemDescriptionPlaceholderTextColor = UIColor(white: 0.9, alpha: 1.0)
+    let itemDescriptionPlaceholderTextColor = UIColor.lightGray
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class ItemDetailViewController: UIViewController {
     
     func setDescTextViewBorder() {
         descTextView.layer.borderWidth = 1.0
-        descTextView.layer.borderColor = itemDescriptionPlaceholderTextColor.cgColor
+        descTextView.layer.borderColor = itemDescriptionBorderColor.cgColor
         descTextView.layer.cornerRadius = 4.0
     }
     
