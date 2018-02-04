@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,13 +103,57 @@
                     <view key="view" contentMode="scaleToFill" id="srD-u8-Xd8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AOI-FZ-s4q">
+                                <rect key="frame" x="16" y="64" width="343" height="257.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AOI-FZ-s4q" secondAttribute="height" multiplier="4:3" id="vLS-hf-Bt7"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eVW-J9-lBa" userLabel="Name">
+                                <rect key="frame" x="16" y="329.5" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rWJ-89-VIV" id="czh-wD-7os"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2aK-BY-bGt" userLabel="Desc">
+                                <rect key="frame" x="16" y="367.5" width="343" height="280"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rWJ-89-VIV" id="hlY-I4-GfX"/>
+                                </connections>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2aK-BY-bGt" firstAttribute="leading" secondItem="AOI-FZ-s4q" secondAttribute="leading" id="7At-mg-GDr"/>
+                            <constraint firstItem="eVW-J9-lBa" firstAttribute="trailing" secondItem="AOI-FZ-s4q" secondAttribute="trailing" id="Q2U-pD-YFh"/>
+                            <constraint firstItem="2aK-BY-bGt" firstAttribute="trailing" secondItem="AOI-FZ-s4q" secondAttribute="trailing" id="QM1-wc-t8R"/>
+                            <constraint firstItem="eVW-J9-lBa" firstAttribute="top" secondItem="AOI-FZ-s4q" secondAttribute="bottom" constant="8" id="SrN-yD-ZqB"/>
+                            <constraint firstItem="eVW-J9-lBa" firstAttribute="leading" secondItem="AOI-FZ-s4q" secondAttribute="leading" id="TE8-hm-7iI"/>
+                            <constraint firstItem="lOz-RF-ytP" firstAttribute="bottom" secondItem="2aK-BY-bGt" secondAttribute="bottom" constant="20" id="ZlX-PY-5Ja"/>
+                            <constraint firstItem="AOI-FZ-s4q" firstAttribute="leading" secondItem="lOz-RF-ytP" secondAttribute="leading" constant="16" id="g7f-8h-32v"/>
+                            <constraint firstItem="lOz-RF-ytP" firstAttribute="trailing" secondItem="AOI-FZ-s4q" secondAttribute="trailing" constant="16" id="iOc-Mk-T7S"/>
+                            <constraint firstItem="2aK-BY-bGt" firstAttribute="top" secondItem="eVW-J9-lBa" secondAttribute="bottom" constant="8" id="ovS-G6-GZ7"/>
+                            <constraint firstItem="AOI-FZ-s4q" firstAttribute="top" secondItem="lOz-RF-ytP" secondAttribute="top" id="rdd-vr-pwF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lOz-RF-ytP"/>
                     </view>
+                    <connections>
+                        <outlet property="descTextView" destination="2aK-BY-bGt" id="yxo-vt-3Pi"/>
+                        <outlet property="imageView" destination="AOI-FZ-s4q" id="btL-vZ-XgW"/>
+                        <outlet property="nameTextField" destination="eVW-J9-lBa" id="CvH-rj-AuH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpx-KT-JAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="134"/>
+            <point key="canvasLocation" x="2029.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4B2-uQ-aeU">
