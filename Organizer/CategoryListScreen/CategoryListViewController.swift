@@ -24,6 +24,10 @@ class CategoryListViewController: UIViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: categoryCellId)
         
         updateDataSourceFromCoreData()
+        
+        if let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last {
+            print("docDir: \(docDir)")
+        }
     }
     
     @IBAction func addButtonAction(_ sender: UIBarButtonItem) {
