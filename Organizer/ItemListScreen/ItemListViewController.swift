@@ -26,8 +26,13 @@ class ItemListViewController: UIViewController {
         print("ItemListViewController category: \(categoryName)")
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: itemCellId)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         updateDataSourceFromCoreData()
+        tableView.reloadData()
     }
     
     func updateDataSourceFromCoreData() {
@@ -38,6 +43,7 @@ class ItemListViewController: UIViewController {
     
     @IBAction func addButtonAction(_ sender: UIBarButtonItem) {
         
+        selectedItem = nil
         performSegue(withIdentifier: SegueId.ShowItemDetail, sender: self)
     }
     
@@ -47,21 +53,30 @@ class ItemListViewController: UIViewController {
         if segue.identifier == SegueId.ShowItemDetail {
             if let itemDetailVC = segue.destination as? ItemDetailViewController {
                 
-                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                    return
-                }
-                
-                guard let item = NSEntityDescription.insertNewObject(
-                    forEntityName: "Item",
-                    into: appDelegate.persistentContainer.viewContext) as? Item else {
+                if let selectedItem = selectedItem {
+                    // pass in item
+                    itemDetailVC.item = selectedItem
+                    
+                } else {
+                    // create new item
+
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                         return
+                    }
+                    
+                    guard let item = NSEntityDescription.insertNewObject(
+                        forEntityName: "Item",
+                        into: appDelegate.persistentContainer.viewContext) as? Item else {
+                            return
+                    }
+                    
+                    item.photo = nil
+                    item.name = nil
+                    item.desc = nil
+                    item.category = category
+                    
+                    itemDetailVC.item = item
                 }
-                
-                item.photo = nil
-                item.name = ""
-                item.desc = ""
-                
-                itemDetailVC.item = item
             }
         }
     }
