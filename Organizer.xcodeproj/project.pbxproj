@@ -17,6 +17,10 @@
 		A5FD46F420268B7A00DAD4DC /* OrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD46F320268B7A00DAD4DC /* OrganizerUITests.swift */; };
 		A5FD47062026906300DAD4DC /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47052026906300DAD4DC /* ItemListViewController.swift */; };
 		A5FD4709202690DE00DAD4DC /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD4708202690DE00DAD4DC /* ItemDetailViewController.swift */; };
+		A5FD47182026A07100DAD4DC /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47142026A07100DAD4DC /* Category+CoreDataClass.swift */; };
+		A5FD47192026A07100DAD4DC /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47152026A07100DAD4DC /* Category+CoreDataProperties.swift */; };
+		A5FD471A2026A07100DAD4DC /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47162026A07100DAD4DC /* Item+CoreDataClass.swift */; };
+		A5FD471B2026A07100DAD4DC /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47172026A07100DAD4DC /* Item+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		A5FD46F520268B7A00DAD4DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5FD47052026906300DAD4DC /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		A5FD4708202690DE00DAD4DC /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		A5FD47142026A07100DAD4DC /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5FD47152026A07100DAD4DC /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A5FD47162026A07100DAD4DC /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5FD47172026A07100DAD4DC /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				A5FD46D020268B7A00DAD4DC /* AppDelegate.swift */,
+				A5FD47132026971700DAD4DC /* CoreDataManagedObjects */,
 				A5FD470120268E4000DAD4DC /* CategoryListScreen */,
 				A5FD47072026906C00DAD4DC /* ItemListScreen */,
 				A5FD470A202690E700DAD4DC /* ItemDetailScreen */,
@@ -156,6 +165,17 @@
 				A5FD4708202690DE00DAD4DC /* ItemDetailViewController.swift */,
 			);
 			path = ItemDetailScreen;
+			sourceTree = "<group>";
+		};
+		A5FD47132026971700DAD4DC /* CoreDataManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A5FD47142026A07100DAD4DC /* Category+CoreDataClass.swift */,
+				A5FD47152026A07100DAD4DC /* Category+CoreDataProperties.swift */,
+				A5FD47162026A07100DAD4DC /* Item+CoreDataClass.swift */,
+				A5FD47172026A07100DAD4DC /* Item+CoreDataProperties.swift */,
+			);
+			path = CoreDataManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,10 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5FD47192026A07100DAD4DC /* Category+CoreDataProperties.swift in Sources */,
 				A5FD4709202690DE00DAD4DC /* ItemDetailViewController.swift in Sources */,
+				A5FD47182026A07100DAD4DC /* Category+CoreDataClass.swift in Sources */,
 				A5FD46D320268B7A00DAD4DC /* CategoryListViewController.swift in Sources */,
 				A5FD47062026906300DAD4DC /* ItemListViewController.swift in Sources */,
 				A5FD46D920268B7A00DAD4DC /* Organizer.xcdatamodeld in Sources */,
+				A5FD471B2026A07100DAD4DC /* Item+CoreDataProperties.swift in Sources */,
+				A5FD471A2026A07100DAD4DC /* Item+CoreDataClass.swift in Sources */,
 				A5FD46D120268B7A00DAD4DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
