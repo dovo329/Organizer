@@ -27,12 +27,15 @@ class ItemDetailViewController: UIViewController {
         print("item name: \(itemName)")
         
         nameTextField.text = item?.name ?? ""
-        descTextView.text = item?.desc ?? ""
+        if let desc = item?.desc {
+            descTextView.text = desc
+            print("item desc: \(desc)")
+        } else {
+            descTextView.text = itemDescriptionPlaceholderText
+            descTextView.textColor = itemDescriptionPlaceholderTextColor
+        }
         
         setDescTextViewBorder()
-        
-        descTextView.text = itemDescriptionPlaceholderText
-        descTextView.textColor = itemDescriptionPlaceholderTextColor
     }
     
     func setDescTextViewBorder() {
