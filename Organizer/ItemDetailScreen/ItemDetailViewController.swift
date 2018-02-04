@@ -16,6 +16,8 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var descTextView: UITextView!
     
     var item: Item?
+    let itemDescriptionPlaceholderText = "Item Description"
+    let itemDescriptionPlaceholderTextColor = UIColor(white: 0.9, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,15 @@ class ItemDetailViewController: UIViewController {
         descTextView.text = item?.desc ?? ""
         
         setDescTextViewBorder()
+        
+        descTextView.text = itemDescriptionPlaceholderText
+        descTextView.textColor = itemDescriptionPlaceholderTextColor
     }
     
     func setDescTextViewBorder() {
         descTextView.layer.borderWidth = 1.0
-        descTextView.layer.borderColor = UIColor.lightGray.cgColor
+        descTextView.layer.borderColor = itemDescriptionPlaceholderTextColor.cgColor
+        descTextView.layer.cornerRadius = 4.0
     }
 }
 
@@ -53,6 +59,18 @@ extension ItemDetailViewController: UITextViewDelegate {
             if let desc = textView.text {
                 self.item?.desc = desc
             }
+        }
+        
+        if textView.text.isEmpty {
+            textView.text = itemDescriptionPlaceholderText
+            textView.textColor = itemDescriptionPlaceholderTextColor
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == itemDescriptionPlaceholderTextColor {
+            textView.text = nil
+            textView.textColor = UIColor.black
         }
     }
 }
