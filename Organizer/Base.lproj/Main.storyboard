@@ -60,17 +60,40 @@
                     <view key="view" contentMode="scaleToFill" id="7H2-Rz-TsN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MEZ-yQ-YYC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1du-y4-AqI" id="Kkl-SC-bzb"/>
+                                    <outlet property="delegate" destination="1du-y4-AqI" id="3g5-2j-Ej1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MEZ-yQ-YYC" firstAttribute="trailing" secondItem="YtN-GG-cdF" secondAttribute="trailing" id="4NX-DU-4ob"/>
+                            <constraint firstItem="MEZ-yQ-YYC" firstAttribute="bottom" secondItem="YtN-GG-cdF" secondAttribute="bottom" id="VPF-XG-EQC"/>
+                            <constraint firstItem="MEZ-yQ-YYC" firstAttribute="leading" secondItem="YtN-GG-cdF" secondAttribute="leading" id="rBB-J7-7M1"/>
+                            <constraint firstItem="MEZ-yQ-YYC" firstAttribute="top" secondItem="YtN-GG-cdF" secondAttribute="top" id="zOZ-M4-Puq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YtN-GG-cdF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Item List" id="C8Y-Bb-yZy"/>
+                    <navigationItem key="navigationItem" title="Item List" id="C8Y-Bb-yZy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="znF-ya-Sxn">
+                            <connections>
+                                <action selector="addButtonAction:" destination="1du-y4-AqI" id="M4I-WL-QmQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="MEZ-yQ-YYC" id="365-2t-hIH"/>
                         <segue destination="rWJ-89-VIV" kind="show" identifier="ShowItemDetail" id="ESP-Kg-mLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy1-1V-sAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273" y="134"/>
+            <point key="canvasLocation" x="1272.8" y="133.5832083958021"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="o7P-8Q-pDG">
