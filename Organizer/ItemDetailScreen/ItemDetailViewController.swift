@@ -39,6 +39,10 @@ class ItemDetailViewController: UIViewController {
         descTextView.layer.borderColor = itemDescriptionPlaceholderTextColor.cgColor
         descTextView.layer.cornerRadius = 4.0
     }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        print("Save Action")
+    }
 }
 
 // MARK: UITextFieldDelegate
