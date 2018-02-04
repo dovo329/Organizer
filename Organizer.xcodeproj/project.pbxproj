@@ -21,6 +21,7 @@
 		A5FD47192026A07100DAD4DC /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47152026A07100DAD4DC /* Category+CoreDataProperties.swift */; };
 		A5FD471A2026A07100DAD4DC /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47162026A07100DAD4DC /* Item+CoreDataClass.swift */; };
 		A5FD471B2026A07100DAD4DC /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD47172026A07100DAD4DC /* Item+CoreDataProperties.swift */; };
+		A5FD471D2026B43400DAD4DC /* SegueId.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD471C2026B43400DAD4DC /* SegueId.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		A5FD47152026A07100DAD4DC /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A5FD47162026A07100DAD4DC /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A5FD47172026A07100DAD4DC /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A5FD471C2026B43400DAD4DC /* SegueId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueId.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				A5FD46D020268B7A00DAD4DC /* AppDelegate.swift */,
+				A5FD471E2026B43C00DAD4DC /* Constants */,
 				A5FD47132026971700DAD4DC /* CoreDataManagedObjects */,
 				A5FD470120268E4000DAD4DC /* CategoryListScreen */,
 				A5FD47072026906C00DAD4DC /* ItemListScreen */,
@@ -176,6 +179,14 @@
 				A5FD47172026A07100DAD4DC /* Item+CoreDataProperties.swift */,
 			);
 			path = CoreDataManagedObjects;
+			sourceTree = "<group>";
+		};
+		A5FD471E2026B43C00DAD4DC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A5FD471C2026B43400DAD4DC /* SegueId.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5FD471D2026B43400DAD4DC /* SegueId.swift in Sources */,
 				A5FD47192026A07100DAD4DC /* Category+CoreDataProperties.swift in Sources */,
 				A5FD4709202690DE00DAD4DC /* ItemDetailViewController.swift in Sources */,
 				A5FD47182026A07100DAD4DC /* Category+CoreDataClass.swift in Sources */,
