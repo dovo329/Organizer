@@ -11,7 +11,12 @@ import UIKit
 
 class ItemListViewController: UIViewController {
     
+    var category: Category?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let categoryName = category?.name ?? ""
+        print("ItemListViewController category: \(categoryName)")
     }
 }
