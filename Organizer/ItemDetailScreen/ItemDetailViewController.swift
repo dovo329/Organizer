@@ -19,6 +19,13 @@ class ItemDetailViewController: UIViewController {
     let itemDescriptionBorderColor = UIColor(white: 0.9, alpha: 1.0)
     let itemDescriptionPlaceholderText = "Item Description"
     let itemDescriptionPlaceholderTextColor = UIColor.lightGray
+    var changesMade = false
+    
+    struct ItemStruct {
+        var name: String
+        var desc: String
+    }
+    var savedItem: ItemStruct?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +43,10 @@ class ItemDetailViewController: UIViewController {
         }
         
         setDescTextViewBorder()
+        
+        if let name = item?.name, let desc = item?.desc {
+            savedItem = ItemStruct(name: name, desc: desc)
+        }
     }
     
     func setDescTextViewBorder() {
@@ -52,17 +63,69 @@ class ItemDetailViewController: UIViewController {
         }
         
         appDelegate.saveContext()
+        changesMade = false
+        if let name = item?.name, let desc = item?.desc {
+            savedItem = ItemStruct(name: name, desc: desc)
+        }
+    }
+    
+    @IBAction func doneAction(_ sender: Any) {
+
+        if !changesMade {
+            // if brand new item hasn't been modified and we're exiting then remove it
+            if let item = item {
+                if item.name == nil {
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                        return
+                    }
+                    
+                    appDelegate.persistentContainer.viewContext.delete(item)
+                }
+            }
+            popBack()
+            
+        } else {
+            self.view.endEditing(true)
+            let alert = UIAlertController(title: NSLocalizedString("Really Exit?", comment: "Alert title"), message: NSLocalizedString("You have unsaved changes", comment: "Alert message"), preferredStyle: UIAlertControllerStyle.alert)
+            let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: "Alert title"), style: UIAlertActionStyle.default, handler: { action in
+             
+                // restore item to last saved state
+                if let savedItem = self.savedItem {
+                    self.item?.name = savedItem.name
+                    self.item?.desc = savedItem.desc
+                }
+                self.popBack()
+            })
+            let noAction = UIAlertAction(title: NSLocalizedString("No", comment: "Alert title"), style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func popBack() {
+        guard let nav = navigationController else {
+            print("Error no navigation controller, can't pop")
+            return
+        }
+        nav.popViewController(animated: true)
     }
 }
 
 // MARK: UITextFieldDelegate
 extension ItemDetailViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == nameTextField {
-            if let name = textField.text {
-                self.item?.name = name
-            }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        changesMade = true
+        
+        if let text = textField.text,
+            let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange,
+                                                       with: string)
+            self.item?.desc = updatedText
         }
+        
+        return true
     }
 }
 
@@ -86,5 +149,16 @@ extension ItemDetailViewController: UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.black
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        changesMade = true
+        if let tvText = textView.text,
+            let textRange = Range(range, in: tvText) {
+            let updatedText = tvText.replacingCharacters(in: textRange,
+                                                       with: text)
+            self.item?.desc = updatedText
+        }
+        return true
     }
 }
