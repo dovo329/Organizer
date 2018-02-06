@@ -23,11 +23,16 @@ class CategoryListViewController: UIViewController {
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: categoryCellId)
         
-        updateDataSourceFromCoreData()
-        
         if let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last {
             print("docDir: \(docDir)")
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        updateDataSourceFromCoreData()
+        self.tableView.reloadData()
     }
     
     @IBAction func addButtonAction(_ sender: UIBarButtonItem) {
